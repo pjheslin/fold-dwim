@@ -3,7 +3,7 @@
 ;; Copyright (C) 2004, 2016 P J Heslin
 ;;
 ;; Author: Peter Heslin <p.j.heslin@dur.ac.uk>
-;; URL: http://www.dur.ac.uk/p.j.heslin/emacs/download/fold-dwim.el
+;; URL: https://github.com/pjheslin/fold-dwim
 ;; Version: 2.0
 ;;
 ;; This program is free software; you can redistribute it and/or modify
@@ -74,7 +74,7 @@
 ;;
 ;; fold-dwim-hide-all: hide all folds in the buffer.
 ;;
-;; fold-dwim-show-all: show all folds in the buffer.  
+;; fold-dwim-show-all: show all folds in the buffer.
 
 ;;; Configuration
 ;;
@@ -231,7 +231,7 @@ the top or bottom of the screen"
       (when fold-dwim-toggle-selective-display
         (set-selective-display 'nil))))
   (setq fold-dwim-hidden-all-p nil))
-  
+
 (defun fold-dwim-hide ()
   "Hide one item"
   (save-excursion
@@ -278,13 +278,13 @@ the top or bottom of the screen"
         (if (not (fold-dwim-outline-nested-p))
             (show-entry)
           (show-children)
-          (show-entry))        
+          (show-entry))
         (setq stop t))
       (when (and (not stop)
                  hs-minor-mode
                  (hs-already-hidden-p))
         (hs-show-block)
-        (setq stop t))   
+        (setq stop t))
       (when (and (not stop)
                  (boundp 'TeX-fold-mode)
                  TeX-fold-mode)
@@ -314,7 +314,7 @@ the top or bottom of the screen"
                        (folding-show-current-entry)
                        (setq stop t))))))
       stop)))
-                   
+
 (defun fold-dwim-toggle ()
   "Try fold-dwim-show to show any hidden text at point; if no
 hidden fold is found, try fold-dwim-hide to hide the construction
@@ -325,7 +325,7 @@ at the cursor."
     (save-excursion
       (unless (fold-dwim-show)
         (fold-dwim-hide)))))
-    
+
 (defun fold-dwim-toggle-all ()
   "If text are hidden by fold-dwim-hide-all, try fold-dwim-show-all and vice versa."
   (interactive)
@@ -360,7 +360,7 @@ at the cursor."
                            (not (looking-at "\\\\begin[ \t]*{document}")))
                        (error nil)))
                 'env)
-               (t 
+               (t
                 nil))))
     type))
 
